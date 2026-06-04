@@ -8,7 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
     
     :root {
       --theme-accent: #f472b6;
@@ -17,8 +17,12 @@
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #060411;
+      background-color: #06040d;
       overflow: hidden;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .text-accent {
@@ -41,16 +45,16 @@
       position: fixed;
       inset: 0;
       z-index: 0;
-      background: #060411;
+      background: #06040d;
       overflow: hidden;
     }
 
     .aurora-glow {
       position: absolute;
       border-radius: 50%;
-      filter: blur(120px);
+      filter: blur(150px);
       mix-blend-mode: screen;
-      opacity: 0.45;
+      opacity: 0.32;
       transition: background 1.5s ease-in-out, opacity 1.5s ease-in-out;
       will-change: transform;
     }
@@ -60,7 +64,7 @@
       left: 15%;
       width: 60vw;
       height: 60vw;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(0, 0, 0, 0) 70%);
     }
 
     .glow-2 {
@@ -248,21 +252,21 @@
 
   <audio id="audio-player"></audio>
 
-  <header class="w-full max-w-7xl mx-auto px-6 pt-6 flex justify-between items-center z-30 relative">
-    <div class="flex items-center space-x-3.5">
-      <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-500 via-pink-600 to-violet-600 flex items-center justify-center shadow-lg shadow-pink-500/10">
-        <i class="fa-solid fa-compact-disc text-white text-xl animate-spin" style="animation-duration: 6s;"></i>
+  <header class="w-full max-w-7xl mx-auto px-4 sm:px-6 pt-4 flex justify-between items-center z-30 relative h-14">
+    <div class="flex items-center space-x-2.5 sm:space-x-3.5">
+      <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-rose-500 via-pink-600 to-violet-600 flex items-center justify-center shadow-lg shadow-pink-500/10">
+        <i class="fa-solid fa-compact-disc text-white text-base sm:text-xl animate-spin" style="animation-duration: 6s;"></i>
       </div>
       <div>
-        <h1 class="font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-100 to-neutral-300">AuraPlayer</h1>
+        <h1 class="font-bold text-lg sm:text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-100 to-neutral-300">AuraPlayer</h1>
       </div>
     </div>
     
-    <div class="flex items-center space-x-2 md:space-x-3">
+    <div class="flex items-center space-x-1.5 sm:space-x-3">
       <div class="relative inline-block text-left z-20">
-        <button id="theme-btn" class="action-btn text-neutral-400 hover:text-white px-3 py-2 text-sm rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-2">
+        <button id="theme-btn" class="action-btn text-neutral-400 hover:text-white px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-1.5">
           <i class="fa-solid fa-palette text-accent"></i>
-          <span class="hidden md:inline text-xs font-semibold">Themes</span>
+          <span class="hidden sm:inline text-xs font-semibold">Themes</span>
         </button>
         <div id="theme-dropdown" class="hidden absolute right-0 mt-2 w-48 rounded-2xl glass-panel shadow-2xl p-2 border border-white/10 space-y-1 z-30">
           <button data-theme-id="amethyst" class="w-full text-left px-3 py-2 rounded-xl hover:bg-white/5 text-xs font-bold flex items-center gap-2 transition">
@@ -283,21 +287,21 @@
         </div>
       </div>
 
-      <button id="fullscreen-btn" class="action-btn text-neutral-400 hover:text-white px-3 py-2 text-sm rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-2">
+      <button id="fullscreen-btn" class="action-btn text-neutral-400 hover:text-white px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-1.5">
         <i class="fa-solid fa-expand"></i>
-        <span class="hidden md:inline text-xs font-semibold">Fullscreen</span>
+        <span class="hidden sm:inline text-xs font-semibold">Fullscreen</span>
       </button>
-      <button id="demo-btn" class="demo-btn-glow px-4 py-2 rounded-full text-xs font-bold text-red-200 tracking-wider">
-        Try Demo Track
+      <button id="demo-btn" class="demo-btn-glow px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold text-red-200 tracking-wider whitespace-nowrap">
+        Try Demo
       </button>
     </div>
   </header>
 
-  <main class="w-full max-w-7xl mx-auto px-4 md:px-8 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center py-4 z-10 relative overflow-y-auto lg:overflow-visible">
+  <main class="w-full max-w-7xl mx-auto px-4 md:px-8 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-center py-2 z-10 relative min-h-0 overflow-hidden">
     
-    <div class="lg:col-span-5 flex flex-col items-center justify-center space-y-5 max-w-md mx-auto w-full">
+    <div class="lg:col-span-5 flex flex-col items-center justify-center space-y-3 lg:space-y-6 max-w-md mx-auto w-full min-h-0 py-2">
       
-      <div class="flex items-center justify-between w-full max-w-[290px] track-pill rounded-full px-4 py-1.5 text-xs text-neutral-300">
+      <div class="flex items-center justify-between w-full max-w-[280px] track-pill rounded-full px-4 py-1.5 text-xs text-neutral-300">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-play-circle text-accent"></i>
           <span class="font-bold tracking-tight text-neutral-200">System Ready</span>
@@ -312,39 +316,39 @@
         </div>
       </div>
 
-      <div class="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center group" id="art-container">
+      <div class="relative w-44 h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 flex items-center justify-center group" id="art-container">
         <div id="album-art-container" class="w-full h-full rounded-[40px] bg-neutral-950/80 overflow-hidden vinyl-glow flex items-center justify-center relative border border-white/10">
-          <canvas id="visualizer-canvas" class="absolute inset-0 w-full h-full opacity-60 z-0"></canvas>
+          <canvas id="visualizer-canvas" class="absolute inset-0 w-full h-full opacity-65 z-0"></canvas>
           
           <div id="art-fallback" class="z-10 flex flex-col items-center justify-center text-center p-6 space-y-3">
-            <i class="fa-solid fa-headphones text-4xl text-neutral-600 transition-colors duration-500"></i>
+            <i class="fa-solid fa-headphones text-3xl sm:text-4xl text-neutral-600 transition-colors duration-500"></i>
           </div>
 
-          <div class="absolute inset-0 flex items-center justify-center z-10 p-10">
+          <div class="absolute inset-0 flex items-center justify-center z-10 p-6 sm:p-8">
             <img id="album-art" class="w-full h-full object-cover rounded-[28px] hidden border border-white/5 shadow-xl transition-all duration-700 group-hover:scale-105" src="" alt="Album Artwork">
           </div>
         </div>
       </div>
 
       <div class="w-full text-center px-4 relative">
-        <h3 id="song-title" class="text-2xl font-bold tracking-tight truncate leading-tight text-white">No Track</h3>
-        <p id="song-artist" class="text-neutral-400 text-sm font-medium mt-1 tracking-wide truncate">Awaiting file upload</p>
+        <h3 id="song-title" class="text-lg sm:text-2xl font-bold tracking-tight truncate leading-tight text-white">No Track</h3>
+        <p id="song-artist" class="text-neutral-400 text-xs sm:text-sm font-medium mt-1 tracking-wide truncate">Awaiting file upload</p>
       </div>
 
     </div>
 
-    <div class="lg:col-span-7 h-[45vh] lg:h-[62vh] flex flex-col relative w-full overflow-hidden justify-center rounded-3xl glass-panel p-6 shadow-2xl">
+    <div class="lg:col-span-7 h-[28vh] sm:h-[35vh] lg:h-[58vh] xl:h-[62vh] flex flex-col relative w-full overflow-hidden justify-center rounded-3xl glass-panel p-4 md:p-6 shadow-2xl min-h-0">
       <div id="lyrics-intro-card" class="absolute inset-0 flex flex-col items-center justify-center text-center space-y-4 px-8 z-10 transition-all duration-500">
-        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10">
-          <i class="fa-solid fa-music text-accent text-lg"></i>
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10">
+          <i class="fa-solid fa-music text-accent text-base sm:text-lg"></i>
         </div>
-        <div class="space-y-2 max-w-sm">
-          <h4 class="text-base font-bold">Synchronized Lyrics Room</h4>
-          <p class="text-neutral-400 text-xs leading-relaxed">Load your audio queue and upload corresponding LRC files to experience real-time fluid kinetic text.</p>
+        <div class="space-y-1 sm:space-y-2 max-w-sm">
+          <h4 class="text-sm sm:text-base font-bold">Synchronized Lyrics Room</h4>
+          <p class="text-neutral-400 text-[10px] sm:text-xs leading-relaxed">Load your audio queue and upload corresponding LRC files to experience real-time fluid kinetic text.</p>
         </div>
       </div>
 
-      <div id="lyric-scroll-view" class="lyric-container w-full h-full overflow-y-auto px-4 md:px-10 flex flex-col space-y-6 py-[22vh] opacity-0 pointer-events-none transition-all duration-700 text-center">
+      <div id="lyric-scroll-view" class="lyric-container w-full h-full overflow-y-auto px-4 md:px-10 flex flex-col space-y-4 sm:space-y-6 py-[12vh] lg:py-[20vh] opacity-0 pointer-events-none transition-all duration-700 text-center">
       </div>
 
       <div class="absolute bottom-4 right-5 text-neutral-500 opacity-60 z-10">
@@ -354,8 +358,8 @@
 
   </main>
 
-  <footer class="w-full max-w-7xl mx-auto px-4 md:px-6 pb-6 pt-2 z-10 relative">
-    <div class="w-full flex flex-col space-y-4">
+  <footer class="w-full max-w-7xl mx-auto px-4 md:px-6 pb-4 sm:pb-6 pt-1 z-10 relative h-auto">
+    <div class="w-full flex flex-col space-y-3 sm:space-y-4">
       
       <div class="flex items-center space-x-3 w-full">
         <span id="time-current" class="text-[11px] font-medium text-neutral-400 w-10 text-right">00:00</span>
@@ -365,17 +369,17 @@
         <span id="time-total" class="text-[11px] font-medium text-neutral-400 w-10 text-left">00:00</span>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
         
-        <div class="flex items-center space-x-6 text-neutral-400 w-full md:w-auto justify-start hidden md:flex">
+        <div class="flex items-center space-x-6 text-neutral-400 w-full md:w-auto justify-start hidden sm:flex">
           <span class="text-[10px] px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 font-bold tracking-wider text-neutral-300" id="audio-format-badge">PCM</span>
           <span class="text-[11px]" id="audio-spec-label">Engine Ready</span>
         </div>
 
-        <div class="flex items-center justify-center space-x-6 w-full md:w-auto">
+        <div class="flex items-center justify-center space-x-5 sm:space-x-6 w-full md:w-auto">
           <button id="shuffle-btn" class="action-btn text-sm text-neutral-400 hover:text-white transition"><i class="fa-solid fa-shuffle"></i></button>
           <button id="prev-btn" class="action-btn text-base text-neutral-400 hover:text-white transition"><i class="fa-solid fa-backward-step"></i></button>
-          <button id="play-pause-btn" class="play-pause-container w-11 h-11 rounded-full text-white flex items-center justify-center"><i class="fa-solid fa-play text-sm ml-0.5" id="play-icon"></i></button>
+          <button id="play-pause-btn" class="play-pause-container w-10 h-10 sm:w-11 sm:h-11 rounded-full text-white flex items-center justify-center"><i class="fa-solid fa-play text-sm ml-0.5" id="play-icon"></i></button>
           <button id="next-btn" class="action-btn text-base text-neutral-400 hover:text-white transition"><i class="fa-solid fa-forward-step"></i></button>
           <button id="repeat-btn" class="action-btn text-sm text-neutral-400 hover:text-white transition"><i class="fa-solid fa-repeat"></i></button>
         </div>
@@ -388,7 +392,7 @@
 
           <div class="flex items-center space-x-2.5">
             <button id="mute-btn" class="action-btn text-neutral-400 hover:text-white transition"><i class="fa-solid fa-volume-high text-xs" id="volume-icon"></i></button>
-            <input type="range" id="volume-slider" class="custom-progress w-20 cursor-pointer" value="80" min="0" max="100">
+            <input type="range" id="volume-slider" class="custom-progress w-16 sm:w-20 cursor-pointer" value="80" min="0" max="100">
           </div>
 
           <button id="playlist-toggle-btn" class="action-btn text-sm text-neutral-400 hover:text-white transition"><i class="fa-solid fa-bars"></i></button>
@@ -399,7 +403,7 @@
     </div>
   </footer>
 
-  <div id="drawer-panel" class="playlist-drawer fixed top-0 right-0 h-full w-85 z-50 glass-panel shadow-2xl flex flex-col p-6">
+  <div id="drawer-panel" class="playlist-drawer fixed top-0 right-0 h-full w-full sm:w-85 z-50 glass-panel shadow-2xl flex flex-col p-6">
     <div class="flex justify-between items-center mb-4">
       <h3 class="font-extrabold text-sm tracking-widest uppercase text-accent">Audio Setlist</h3>
       <button id="close-drawer-btn" class="text-neutral-400 hover:text-white text-sm"><i class="fa-solid fa-xmark"></i></button>
@@ -538,7 +542,7 @@
 
     const themes = {
       amethyst: {
-        glow1: 'radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, rgba(0, 0, 0, 0) 70%)',
+        glow1: 'radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(0, 0, 0, 0) 70%)',
         glow2: 'radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(0, 0, 0, 0) 70%)',
         glow3: 'radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(0, 0, 0, 0) 70%)',
         accent: '#f472b6',
@@ -678,32 +682,32 @@
         if (glow2) glow2.style.transform = `scale(${1 + midAvg * 0.15}) translate(${trebleAvg * -15}px, ${bassAvg * 8}px)`;
         if (glow3) glow3.style.transform = `scale(${1 + trebleAvg * 0.2})`;
 
-        const count = 48;
+        const count = 64;
         const centerX = w / 2;
         const centerY = h / 2;
-        const baseRadius = Math.min(w, h) * 0.45;
+        const baseRadius = Math.min(w, h) * 0.38;
         
         swirlRotation += 0.003 + (bassAvg * 0.015);
 
         for (let i = 0; i < count; i++) {
           const value = dataArray[i * 2] || 0;
           const percent = value / 255;
-          const amplitude = percent * 45;
+          const amplitude = percent * 32;
           
           const angle = (i / count) * Math.PI * 2 + swirlRotation;
           
-          const x1 = centerX + Math.cos(angle) * (baseRadius - amplitude * 0.4);
-          const y1 = centerY + Math.sin(angle) * (baseRadius - amplitude * 0.4);
-          const x2 = centerX + Math.cos(angle) * (baseRadius + amplitude * 0.9);
-          const y2 = centerY + Math.sin(angle) * (baseRadius + amplitude * 0.9);
+          const x1 = centerX + Math.cos(angle) * baseRadius;
+          const y1 = centerY + Math.sin(angle) * baseRadius;
+          const x2 = centerX + Math.cos(angle) * (baseRadius + amplitude);
+          const y2 = centerY + Math.sin(angle) * (baseRadius + amplitude);
 
           const gradient = ctx.createLinearGradient(x1, y1, x2, y2);
-          gradient.addColorStop(0, `rgba(139, 92, 246, ${0.08 + percent * 0.3})`);
-          gradient.addColorStop(0.5, `rgba(236, 72, 153, ${0.25 + percent * 0.45})`);
+          gradient.addColorStop(0, `rgba(139, 92, 246, ${0.1 + percent * 0.35})`);
+          gradient.addColorStop(0.5, `rgba(236, 72, 153, ${0.3 + percent * 0.5})`);
           gradient.addColorStop(1, 'rgba(236, 72, 153, 0)');
 
           ctx.strokeStyle = gradient;
-          ctx.lineWidth = 3.5;
+          ctx.lineWidth = 2.5;
           ctx.lineCap = 'round';
           ctx.beginPath();
           ctx.moveTo(x1, y1);
@@ -759,7 +763,7 @@
 
       lyrics.forEach((line, index) => {
         const p = document.createElement('p');
-        p.className = 'lyric-line text-xl md:text-2xl font-bold cursor-pointer inactive tracking-tight leading-relaxed py-1';
+        p.className = 'lyric-line text-lg sm:text-xl md:text-2xl font-bold cursor-pointer inactive tracking-tight leading-relaxed py-1';
         p.textContent = line.text;
         p.dataset.time = line.time;
         p.dataset.index = index;
@@ -792,9 +796,9 @@
 
         lyricElements.forEach((el, index) => {
           if (index === activeIndex) {
-            el.className = 'lyric-line text-xl md:text-2xl font-bold cursor-pointer active tracking-tight leading-relaxed py-1';
+            el.className = 'lyric-line text-lg sm:text-xl md:text-2xl font-bold cursor-pointer active tracking-tight leading-relaxed py-1';
           } else {
-            el.className = 'lyric-line text-xl md:text-2xl font-bold cursor-pointer inactive tracking-tight leading-relaxed py-1';
+            el.className = 'lyric-line text-lg sm:text-xl md:text-2xl font-bold cursor-pointer inactive tracking-tight leading-relaxed py-1';
           }
         });
 
