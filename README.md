@@ -9,7 +9,7 @@
 
 <div align="center">
   <h1>🎵 AuraPlayer</h1>
-  <p><strong>A stunning, single-file web music player with synchronized lyrics, real-time audio visualization, and a gorgeous glassmorphism UI.</strong></p>
+  <p><strong>A stunning, fully open-source, single-file web music player with synchronized lyrics, real-time audio visualization, and a gorgeous glassmorphism UI.</strong></p>
   <a href="https://thvariableyt.github.io/Aura-Player/">🌐 Live Demo</a> &nbsp;|&nbsp;
   <a href="#-features">✨ Features</a> &nbsp;|&nbsp;
   <a href="#-getting-started">🚀 Getting Started</a>
